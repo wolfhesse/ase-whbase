@@ -1,0 +1,10 @@
+{
+  "name": "ase-whbas",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "",
+    "request": "",
+    "socket.io": "= 0.9.16",
+    "socket.io-client": "= 0.9.16"
+  }
+}
