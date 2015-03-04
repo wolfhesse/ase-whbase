@@ -1,6 +1,13 @@
 {
   "name": "ase-whbase",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "description": "jetzt mit repos",
+  "keywords": "testing",
+  "homepage": "http://twitter.com/wolfhesse",
+  "repository" : {
+	  "type" : "git",
+	  "url" : "http://github.com/wolfhesse/ase-whbase.git"
+  },
   "dependencies": {
     "express": "",
     "request": "",
