@@ -1,5 +1,5 @@
 {
-  "name": "ase-whbas",
+  "name": "ase-whbase",
   "version": "0.0.1",
   "dependencies": {
     "express": "",
