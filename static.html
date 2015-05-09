@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+    <link type="text/css" rel="stylesheet" href="index.css"/>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="reporter.js"></script>
+</head>
+<body>
+<div id='pfd' class="container">
+    <div id="tDate" class="element ">..date..</div>
+    <div id="btnDate" class="element btnHere">request Date</div>
+    <div id="btnLogRequest" class="element btnHere">LogRequest</div>
+
+    <div id="tLastUpDate" class="element"></div>
+</div>
+
+<div class="container">
+    <div id="col1-wrapper" class="container">
+        <h2>business</h2>
+
+        <div id="tStatus" class="element"></div>
+        <div id="col-business" class="element">
+        </div>
+    </div>
+    <div id="col2-wrapper" class="container">
+        <h2>local</h2>
+
+        <div id="col-local" class="element">
+        </div>
+    </div>
+    <div id="col3-wrapper" class="container">
+        <h2>global</h2>
+
+        <div id="col-global" class="element">
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    var doLastUpDate = function (date) {
+        $("#tLastUpDate").text(date);
+    };
+
+    $(document).ready(function () {
+
+        c1 = c2 = c3 = 0;
+        var socket = io.connect(); // 'http://localhost:32701');
+        //
+        reporter = Reporter.Reporter({socket: socket});
+        Reporter.status($('#col2'), 'ready');
+
+
+        $("#pfd").mousemove(function (args) {
+            socket.emit('mousemove', {x: args.pageX, y: args.pageY});
+        });
+
+        $(".btnHere").mouseover(function (args) {
+            $(this).css('background', 'lightgrey');
+        });
+        $(".btnHere").mouseout(function (args) {
+            $(this).css('background', 'transparent');
+        });
+
+        $("#btnDate").click(function (args) {
+            $("#tDate").text('waiting...');
+            Reporter.emit_and_log('/request/date');
+        });
+        $("#btnLogRequest").click(function (args) {
+            $("#tDate").text('waiting...');
+            Reporter.emit_and_log('/request/logdump');
+        });
+
+        socket.on('/news/business', function (data) {
+            doLastUpDate(data.date);
+            data.counter = c1++;
+            Reporter.log(data);
+            data.localtype = 'business';
+            Reporter.status($('#col-business'), data);
+        });
+        socket.on('/news/local', function (data) {
+            doLastUpDate(data.date);
+            data.counter = c2++;
+            Reporter.log(data);
+
+            data.localtype = 'local';
+            Reporter.status($("#col-local"), data);
+        });
+        socket.on('/news/global', function (data) {
+            doLastUpDate(data.date);
+            data.counter = c3++;
+            data.localtype = 'global';
+            Reporter.status($("#col-global"), data);
+        });
+        socket.on('/response/date', function (data) {
+            $("#tDate").text(data.date);
+            doLastUpDate(data.date);
+            Reporter.log('/response/date: ' + JSON.stringify(data));
+            data.localtype = 'date';
+            Reporter.status($("#tStatus"), data);
+        });
+    });
+
+</script>
+</body>
+</html>
