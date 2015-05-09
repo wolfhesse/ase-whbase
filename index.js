@@ -51,19 +51,19 @@ var serve = module.exports.serve = function () {
         console.log("client connected");
 
         client.on("data", function (data) {
-            console.log('data ' + data);
+            console.log('data ' + JSON.stringify(data));
             em.emit("/process/data", data);
         });
         client.on("event", function (data) {
-            console.log('event ' + data);
+            console.log('event ' + JSON.stringify(data));
             em.emit("/process/event", data);
         });
         client.on("tick", function (data) {
-            console.log('tick ' + data);
+            console.log('tick ' + JSON.stringify(data));
         });
 
         em.on('to-helo-mousemove', function (data) {
-            console.log("to-helo-mousemove", data);
+            console.log("to-helo-mousemove", JSON.stringify(data));
             data['srv-id'] = 'hck-socket-d';
             client.emit("helo", data);
         });
