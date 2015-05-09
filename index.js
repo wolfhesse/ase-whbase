@@ -62,42 +62,50 @@ var serve = module.exports.serve = function () {
             console.log('tick ' + data);
         });
 
+        em.on('to-helo-mousemove',function(data){
+            console.log("to-helo-mousemove",data);
+            data['srv-id']='hck-socket-d';
+            client.emit("helo".data);
+        });
+
+        // sending side
+        //
+        io.sockets.on('connection', function (socket) {
+
+            em.on("/process/data", function (data) {
+                socket.emit("/news/global", data);
+            });
+
+            em.on("/process/event", function (data) {
+                socket.emit("/news/business", data);
+            });
+
+            socket.on('mousemove', function (data) {
+                console.log('mousemove', data);
+                data.date = new Date();
+                socket.volatile.emit('/news/local', data);
+                //setTimeout(function () {
+                //    socket.broadcast.emit('/news/global', data);
+                //}, 250);
+                em.emit("to-helo-mousemove",data);
+            });
+
+            socket.on('/request/broadcast-date', function (data) {
+                console.log(data);
+                console.log(JSON.parse(data));
+                console.log(data.sender);
+                socket.broadcast.emit('/response/date', {date: new Date()});
+            });
+
+            socket.on('/request/date', function (data) {
+                setTimeout(function () {
+                    socket.volatile.emit('/response/date', {date: new Date()});
+                }, 2500);
+            });
+        });
+
     });
 
 
-    // sending side
-    //
-    io.sockets.on('connection', function (socket) {
-
-        em.on("/process/data", function (data) {
-            socket.emit("/news/global", data);
-        });
-
-        em.on("/process/event", function (data) {
-            socket.emit("/news/business", data);
-        });
-
-        socket.on('mousemove', function (data) {
-            console.log('mousemove', data);
-            data.date = new Date();
-            socket.volatile.emit('/news/local', data);
-            setTimeout(function () {
-                socket.broadcast.emit('/news/global', data);
-            }, 250);
-        });
-
-        socket.on('/request/broadcast-date', function (data) {
-            console.log(data);
-            console.log(JSON.parse(data));
-            console.log(data.sender);
-            socket.broadcast.emit('/response/date', {date: new Date()});
-        });
-
-        socket.on('/request/date', function (data) {
-            setTimeout(function () {
-                socket.volatile.emit('/response/date', {date: new Date()});
-            }, 2500);
-        });
-    });
 
 };
