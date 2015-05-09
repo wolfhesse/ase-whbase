@@ -65,7 +65,7 @@ var serve = module.exports.serve = function () {
         em.on('to-helo-mousemove', function (data) {
             console.log("to-helo-mousemove", data);
             data['srv-id'] = 'hck-socket-d';
-            client.socket.emit("helo", data);
+            client.emit("helo", data);
         });
 
         // sending side
