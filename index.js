@@ -52,41 +52,28 @@ var serve = module.exports.serve = function () {
 
         client.on("data", function (data) {
             console.log('data ' + data);
+            em.emit("/process/data", data);
         });
         client.on("event", function (data) {
             console.log('event ' + data);
+            em.emit("/process/event", data);
         });
         client.on("tick", function (data) {
             console.log('tick ' + data);
         });
 
-        client.on("CONFIG", function (data) {
-            console.log("client:CONFIG");
-            //console.log(data);
-            em.emit('/process/config', {srv: 'config', ts: new Date, data: data});
-        });
-        client.on("/u0/SCHEDULE", function (data) {
-            console.log(data);
-            em.emit('/process/schedule', {srv: 'schedule', ts: new Date, data: data});
-        });
-        client.on("CMD", function (data) {
-            console.log("client:CMD");
-            console.log(data.cmd);
-            em.emit('/process/cmd', {srv: 'cmd', ts: new Date, data: data});
-        });
     });
 
 
     // sending side
     //
     io.sockets.on('connection', function (socket) {
-        em.on("/process/config", function (data) {
+
+        em.on("/process/data", function (data) {
             socket.emit("/news/global", data);
         });
-        em.on("/process/schedule", function (data) {
-            socket.emit("/news/business", data);
-        });
-        em.on("/process/cmd", function (data) {
+
+        em.on("/process/event", function (data) {
             socket.emit("/news/business", data);
         });
 
