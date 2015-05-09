@@ -62,10 +62,10 @@ var serve = module.exports.serve = function () {
             console.log('tick ' + data);
         });
 
-        em.on('to-helo-mousemove',function(data){
-            console.log("to-helo-mousemove",data);
-            data['srv-id']='hck-socket-d';
-            client.socket.emit("helo".data);
+        em.on('to-helo-mousemove', function (data) {
+            console.log("to-helo-mousemove", data);
+            data['srv-id'] = 'hck-socket-d';
+            client.socket.emit("helo", data);
         });
 
         // sending side
@@ -87,7 +87,7 @@ var serve = module.exports.serve = function () {
                 //setTimeout(function () {
                 //    socket.broadcast.emit('/news/global', data);
                 //}, 250);
-                em.emit("to-helo-mousemove",data);
+                em.emit("to-helo-mousemove", data);
             });
 
             socket.on('/request/broadcast-date', function (data) {
@@ -105,7 +105,6 @@ var serve = module.exports.serve = function () {
         });
 
     });
-
 
 
 };
