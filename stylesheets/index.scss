@@ -1,0 +1,48 @@
+/*
+
+$large-screen:  new-breakpoint(max-width 1200px 12);
+$medium-screen: new-breakpoint(max-width  992px 12);
+$small-screen:  new-breakpoint(max-width  768px  6);
+
+@mixin bootstrap-container {
+    @include outer-container;
+    @include media($large-screen)  { max-width: 1170px; }
+    @include media($medium-screen) { max-width:  970px; }
+    @include media($small-screen)  { max-width:  750px; }
+}
+Then just use the mixin as follows:
+
+#foo {
+    @include bootstrap-container;
+}
+
+*/
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+.outer-container {
+  max-width: 1800px;
+  @media all and (min-width: 750px) {
+    max-width: 1500px;
+  }
+  @include outer-container;
+}
+
+.element {
+  @include span-columns(6);
+  overflow: visible;
+  overflow-wrap: break-word;
+}
+
+html, body {
+  min-height: 101%;
+  font-family: $lucida-grande;
+}
+
+.pano {
+  @include span-columns(4);
+}
+
+#btn-show-player, #btn-set1, #btn-set2, #btn-set3 {
+  @include button;
+}
