@@ -47,7 +47,7 @@ var serve = module.exports.serve = function () {
     console.log('should be connected... sooon');
 
     // listening side
-    client.on("connect", function (client_socket) {
+    client.on("connect", function () {
         console.log("client connected");
 
         client.on("data", function (data) {
@@ -65,7 +65,7 @@ var serve = module.exports.serve = function () {
         em.on('to-helo-mousemove',function(data){
             console.log("to-helo-mousemove",data);
             data['srv-id']='hck-socket-d';
-            client_socket.emit("helo".data);
+            client.socket.emit("helo".data);
         });
 
         // sending side
