@@ -1,3 +1,8 @@
+Version 0.14.0:
+ - merged master
+ - srv-id to srv_id for JSON
+ - 0.12.2 manual
+
 Version 0.13.1:
  - version package info up
 
