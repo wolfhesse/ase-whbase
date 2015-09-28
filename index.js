@@ -32,7 +32,7 @@ var serve = module.exports.serve = function () {
     var ev = require("events");
     var em = new ev.EventEmitter();
 
-    console.log('server connecting to backbone' + module.exports.server);
+    console.log('server connecting to backbone ' + module.exports.server);
     var backbone = require("socket.io-client").connect(module.exports.server);
     console.log('backbone should be connected... sooon');
 
@@ -40,7 +40,7 @@ var serve = module.exports.serve = function () {
 
     em.on('to-helo-mousemove', function (data) {
         console.log("to-helo-mousemove", JSON.stringify(data));
-        data['srv-id'] = 'hck-socket-d';
+        data['srv_id'] = 'hck-socket-d';
         if (backbone_connected)
             backbone.emit("helo", data);
     });
