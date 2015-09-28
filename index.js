@@ -64,7 +64,7 @@ var serve = module.exports.serve = function () {
 
         em.on('to-helo-mousemove', function (data) {
             console.log("to-helo-mousemove", JSON.stringify(data));
-            data['srv-id'] = 'hck-socket-d';
+            data['srv_id'] = 'hck-socket-d';
             client.emit("helo", data);
         });
 
