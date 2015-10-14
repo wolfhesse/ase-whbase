@@ -1,6 +1,6 @@
 {
   "name": "ase-whbase",
-  "version": "0.13.1",
+  "version": "0.13.2",
   "description": "jetzt mit repos",
   "keywords": "testing",
   "homepage": "http://twitter.com/wolfhesse",
@@ -11,7 +11,7 @@
   "dependencies": {
     "express": "",
     "request": "",
-    "socket.io": "",
-    "socket.io-client": ""
+    "socket.io": "1.3.7",
+    "socket.io-client": "1.3.7"
   }
 }
