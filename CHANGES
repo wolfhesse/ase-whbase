@@ -1,3 +1,8 @@
+Version 0.15.0:
+ - buchhaltung
+ - 0.15.0 package
+ - 0.13.2
+
 Version 0.14.0:
  - merged master
  - srv-id to srv_id for JSON
