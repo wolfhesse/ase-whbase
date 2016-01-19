@@ -105,6 +105,14 @@ var serve = module.exports.serve = function () {
                 socket.volatile.emit('/response/date', {date: new Date()});
             }, 2500);
         });
+
+	socket.on('/request/logdump', function(data) {
+	    var logdump_latency=100;	
+	    setTimeout(function() {
+	    	socket.volatile.emit('/response/logdump', {date: new Date(), purpose: 'logdump_latency demo'});
+    	    }, logdump_latency);		
+	});    
+
     });
 };
 
