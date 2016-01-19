@@ -97,15 +97,15 @@
         socket.on('/response/date', function (data) {
             $("#tDate").text(data.date);
             doLastUpDate(data.date);
-            Reporter.log('/response/date: ' + JSON.stringify(data));
+            Reporter.log('/response/date: ' + JSON.stringify(data) );
             data.localtype = 'date';
             Reporter.status($("#tStatus"), data);
         });
 	socket.on('/response/logdump', function(data) {
 		doLastUpdate(data.date);
-		Reporter.log('/response/logdump: ' + JSON.stringify(data));
+		Reporter.log('/response/logdump: ' + JSON.stringify(data) );
 		Reporter.status($('#tStatus'), data);
-	}
+	});
     });
 
 </script>
