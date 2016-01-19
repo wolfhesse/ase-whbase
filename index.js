@@ -117,7 +117,7 @@ var serve = module.exports.serve = function () {
 	    var logdump_latency=100;	
 	    setTimeout(function() {
 	    	socket.volatile.emit('/response/logdump', {date: new Date(), purpose: 'logdump_latency demo'});
-		em.emit('to-helo-logdump', {date: new Date()}
+		em.emit('to-helo-logdump', {date: new Date()});
     	    }, logdump_latency);		
 	});    
 
