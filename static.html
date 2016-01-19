@@ -102,7 +102,7 @@
             Reporter.status($("#tStatus"), data);
         });
 	socket.on('/response/logdump', function(data) {
-		doLastUpdate(data.date);
+		doLastUpDate(data.date);
 		Reporter.log('/response/logdump: ' + JSON.stringify(data) );
 		Reporter.status($('#tStatus'), data);
 	});
