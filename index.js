@@ -44,6 +44,13 @@ var serve = module.exports.serve = function () {
         if (backbone_connected)
             backbone.emit("helo", data);
     });
+    em.on('to-helo-logdump', function(data) {
+	    console.log("to-helo-logdump", JSON.stringify(data));
+	    data['protocol'] = 'ase-whbase';
+	    data['verb'] = 'logdump';
+	    if(backbone_connected)
+		    backbone.emit("helo",data);
+    });
 
     // listening side
     backbone.on("connect", function () {
@@ -110,6 +117,7 @@ var serve = module.exports.serve = function () {
 	    var logdump_latency=100;	
 	    setTimeout(function() {
 	    	socket.volatile.emit('/response/logdump', {date: new Date(), purpose: 'logdump_latency demo'});
+		em.emit('to-helo-logdump', {date: new Date()}
     	    }, logdump_latency);		
 	});    
 
