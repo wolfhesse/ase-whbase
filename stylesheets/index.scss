@@ -46,3 +46,13 @@ html, body {
 #btn-show-player, #btn-set1, #btn-set2, #btn-set3 {
   @include button;
 }
+
+.clearfix:before,
+.clearfix:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}

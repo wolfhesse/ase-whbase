@@ -4,14 +4,18 @@
   "description": "jetzt mit repos",
   "keywords": "testing",
   "homepage": "http://twitter.com/wolfhesse",
-  "repository" : {
-	  "type" : "git",
-	  "url" : "git://github.com/wolfhesse/ase-whbase.git"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wolfhesse/ase-whbase.git"
   },
   "dependencies": {
     "express": "",
     "request": "",
     "socket.io": "1.3.7",
     "socket.io-client": "1.3.7"
+  },
+  "devDependencies": {
+    "compass": "",
+    "compile-compass": "^1.6.0"
   }
 }
