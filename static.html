@@ -7,6 +7,7 @@
     <script src="reporter.js"></script>
 </head>
 <body>
+
 <div id='pfd' class="container">
     <div id="tDate" class="element ">..date..</div>
     <div id="btnDate" class="element btnHere">request Date</div>
@@ -15,28 +16,27 @@
     <div id="tLastUpDate" class="element"></div>
 </div>
 
-<div class="container">
-    <div id="col1-wrapper" class="container">
+<div class="container clearfix">
+    <div id="col1-wrapper" class="container clearfix">
         <h2>business</h2>
 
         <div id="tStatus" class="element"></div>
         <div id="col-business" class="element">
         </div>
     </div>
-    <div id="col2-wrapper" class="container">
+    <div id="col2-wrapper" class="container clearfix">
         <h2>local</h2>
 
-        <div id="col-local" class="element">
+        <div id="col-local" class="element clearfix">
         </div>
     </div>
-    <div id="col3-wrapper" class="container">
+    <div id="col3-wrapper" class="container clearfix">
         <h2>global</h2>
 
         <div id="col-global" class="element">
         </div>
     </div>
 </div>
-
 
 <script>
 
@@ -97,15 +97,15 @@
         socket.on('/response/date', function (data) {
             $("#tDate").text(data.date);
             doLastUpDate(data.date);
-            Reporter.log('/response/date: ' + JSON.stringify(data) );
+            Reporter.log('/response/date: ' + JSON.stringify(data));
             data.localtype = 'date';
             Reporter.status($("#tStatus"), data);
         });
-	socket.on('/response/logdump', function(data) {
-		doLastUpDate(data.date);
-		Reporter.log('/response/logdump: ' + JSON.stringify(data) );
-		Reporter.status($('#tStatus'), data);
-	});
+        socket.on('/response/logdump', function (data) {
+            doLastUpDate(data.date);
+            Reporter.log('/response/logdump: ' + JSON.stringify(data));
+            Reporter.status($('#tStatus'), data);
+        });
     });
 
 </script>
