@@ -1,3 +1,16 @@
+Version 0.17.0:
+ - buchhaltung
+ - Merge branch 'develop' of github.com:wolfhesse/ase-whbase into develop
+ - on core
+ - cosmetix
+ - prepare 0.17.0
+ - newline stuff.. working on that CRLF/CR
+ - clearfix
+ - Merge tag '0.16.0' into develop
+ - Merge branch 'r-0.16.0'
+ - buchhaltung
+ - buchhaltung
+
 Version 0.16.0:
  - wp
  - cp phpstorm session enable..
