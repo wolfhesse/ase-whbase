@@ -12,6 +12,13 @@ var serve = module.exports.serve = function () {
     function http_handler(req, res) {
         var base = '/io_original_server'; // wegzunehmen
         url_minus_base = req.url.replace(base, '');
+        if (url_minus_base === "") {
+            url_minus_base = '/index.html';
+        }
+        if (url_minus_base === "/") {
+            url_minus_base = '/index.html';
+        }
+        console.log(url_minus_base);
         fs.readFile(__dirname + url_minus_base, /* '/index.html', */
 
             function (err, data) {
