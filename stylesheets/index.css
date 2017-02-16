@@ -1,3 +1,15 @@
+/* neu von jsfiddle search .clearfix */
+.clearfix:before, .clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
 /*
 
 $large-screen:  new-breakpoint(max-width 1200px 12);
@@ -84,3 +96,5 @@ html, body {
   #btn-show-player:disabled, #btn-set1:disabled, #btn-set2:disabled, #btn-set3:disabled {
     opacity: 0.5;
     cursor: not-allowed; }
+
+/*# sourceMappingURL=index.css.map */
