@@ -13,9 +13,5 @@
     "request": "",
     "socket.io": "1.3.7",
     "socket.io-client": "1.3.7"
-  },
-  "devDependencies": {
-    "compass": "",
-    "compile-compass": "^1.6.0"
   }
 }
