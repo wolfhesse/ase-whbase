@@ -7,6 +7,7 @@
     <script src="reporter.js"></script>
 </head>
 <body>
+
 <div id='pfd' class="container">
     <div id="tDate" class="element ">..date..</div>
     <div id="btnDate" class="element btnHere">request Date</div>
@@ -36,7 +37,6 @@
         </div>
     </div>
 </div>
-
 
 <script>
 
@@ -97,15 +97,15 @@
         socket.on('/response/date', function (data) {
             $("#tDate").text(data.date);
             doLastUpDate(data.date);
-            Reporter.log('/response/date: ' + JSON.stringify(data) );
+            Reporter.log('/response/date: ' + JSON.stringify(data));
             data.localtype = 'date';
             Reporter.status($("#tStatus"), data);
         });
-	socket.on('/response/logdump', function(data) {
-		doLastUpDate(data.date);
-		Reporter.log('/response/logdump: ' + JSON.stringify(data) );
-		Reporter.status($('#tStatus'), data);
-	});
+        socket.on('/response/logdump', function (data) {
+            doLastUpDate(data.date);
+            Reporter.log('/response/logdump: ' + JSON.stringify(data));
+            Reporter.status($('#tStatus'), data);
+        });
     });
 
 </script>
