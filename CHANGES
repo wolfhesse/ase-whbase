@@ -1,3 +1,6 @@
+Version 0.19.6:
+ - patch 0.19.6
+
 Version 0.19.5:
  - bump pj version
  - include node modules in  vc
