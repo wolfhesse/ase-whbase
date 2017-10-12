@@ -6,7 +6,18 @@ var serve = module.exports.serve = function () {
     var port = process.env.PORT || 44000;
     var host = process.env.HOST || "0.0.0.0";
     app.listen(port, host);
+    var version = "n/a";
+    fs.readFile(__dirname + "/VERSION", /* '/index.html', */
 
+        function (err, data) {
+            //                console.log(req);
+            if (err) {
+                console.error(err.message);
+
+            }
+            version = data;
+        });
+    console.log("server version " + version);
     console.log("server listening on " + host + ":" + port);
 
     function http_handler(req, res) {
@@ -51,12 +62,12 @@ var serve = module.exports.serve = function () {
         if (backbone_connected)
             backbone.emit("helo", data);
     });
-    em.on('to-helo-logdump', function(data) {
-	    console.log("to-helo-logdump", JSON.stringify(data));
-	    data['protocol'] = 'ase-whbase';
-	    data['verb'] = 'logdump';
-	    if(backbone_connected)
-		    backbone.emit("helo",data);
+    em.on('to-helo-logdump', function (data) {
+        console.log("to-helo-logdump", JSON.stringify(data));
+        data['protocol'] = 'ase-whbase';
+        data['verb'] = 'logdump';
+        if (backbone_connected)
+            backbone.emit("helo", data);
     });
 
     // listening side
@@ -120,13 +131,13 @@ var serve = module.exports.serve = function () {
             }, 2500);
         });
 
-	socket.on('/request/logdump', function(data) {
-	    var logdump_latency=100;	
-	    setTimeout(function() {
-	    	socket.volatile.emit('/response/logdump', {date: new Date(), purpose: 'logdump_latency demo'});
-		em.emit('to-helo-logdump', {date: new Date()});
-    	    }, logdump_latency);		
-	});    
+        socket.on('/request/logdump', function (data) {
+            var logdump_latency = 100;
+            setTimeout(function () {
+                socket.volatile.emit('/response/logdump', {date: new Date(), purpose: 'logdump_latency demo'});
+                em.emit('to-helo-logdump', {date: new Date()});
+            }, logdump_latency);
+        });
 
     });
 };
