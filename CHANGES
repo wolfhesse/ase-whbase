@@ -1,3 +1,7 @@
+Version 0.19.1:
+ - pj bump
+ - bundledDependencies array
+
 Version 0.19.0:
  - pj bump v 0.19.0
  - bundleDependencies
