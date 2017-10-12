@@ -1,11 +1,11 @@
 {
 	"name": "@ase/whbase",
-	"version": "0.19.3",
+	"version": "0.19.4",
 	"description": "whbase npm playground, jetzt scoped",
 	"keywords": "testing",
 	"homepage": "http://twitter.com/wolfhesse",
 	"publishConfig": {
-		"registry":"http://npm.base.wolfspool.at"
+		"registry": "http://npm.base.wolfspool.at"
 	},
 	"repository": {
 		"type": "git",
