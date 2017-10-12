@@ -1,3 +1,6 @@
+Version 0.19.2:
+ - pj bump semver
+
 Version 0.19.1:
  - pj bump
  - bundledDependencies array
