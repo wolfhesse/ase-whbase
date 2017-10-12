@@ -11,6 +11,7 @@
 		"type": "git",
 		"url": "git://github.com/wolfhesse/ase-whbase.git"
 	},
+	"bundleDependencies": true,
 	"dependencies": {
 		"express": "",
 		"request": "",
