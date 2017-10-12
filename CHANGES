@@ -1,3 +1,10 @@
+Version 0.19.5:
+ - bump pj version
+ - include node modules in  vc
+ - generate .gitignore
+ - include version in start-log-lines
+ - 0.19.4
+
 Version 0.19.3:
  - de bundledDependencies
 
