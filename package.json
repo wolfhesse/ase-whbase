@@ -1,7 +1,7 @@
 {
-  "name": "ase-whbase",
-  "version": "0.18.3",
-  "description": "jetzt mit repos",
+  "name": "@ase/whbase",
+  "version": "0.18.4",
+  "description": "whbase npm playground, jetzt scoped",
   "keywords": "testing",
   "homepage": "http://twitter.com/wolfhesse",
   "repository": {
