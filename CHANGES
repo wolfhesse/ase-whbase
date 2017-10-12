@@ -1,3 +1,6 @@
+Version 0.19.3:
+ - de bundledDependencies
+
 Version 0.19.2:
  - pj bump semver
 
