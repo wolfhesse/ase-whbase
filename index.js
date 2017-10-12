@@ -6,19 +6,18 @@ var serve = module.exports.serve = function () {
     var port = process.env.PORT || 44000;
     var host = process.env.HOST || "0.0.0.0";
     app.listen(port, host);
+    console.log("server listening on " + host + ":" + port);
+
     var version = "n/a";
     fs.readFile(__dirname + "/VERSION", /* '/index.html', */
-
         function (err, data) {
-            //                console.log(req);
             if (err) {
                 console.error(err.message);
 
             }
             version = data;
+            console.log("server version " + version);
         });
-    console.log("server version " + version);
-    console.log("server listening on " + host + ":" + port);
 
     function http_handler(req, res) {
         var base = '/io_original_server'; // wegzunehmen
