@@ -1,0 +1,6 @@
+npm set registry http://npm.base.wolfspool.at
+
+( npm adduser --registry http://npm.base.wolfspool.at )
+
+npm login (rogera/1boris)
+npm publish
