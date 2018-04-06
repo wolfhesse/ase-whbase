@@ -1,6 +1,6 @@
 {
 	"name": "@ase/whbase",
-	"version": "0.19.6",
+  "version": "0.19.7",
 	"description": "whbase npm playground, jetzt scoped",
 	"keywords": "testing",
 	"homepage": "http://twitter.com/wolfhesse",
